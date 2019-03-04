@@ -3,29 +3,21 @@
 import random
 
 number = random.randint(1, 10)
-tries = 1
+tries = 0
+win = False
 
-uname = input("Hello, What's your username?")
+print("Guess a number between 1 & 10: ")
+while not win:
+    guess = int(input())
+    tries = tries + 1
+    if guess == number:
+        win = True
+    elif guess < number:
+        print("Guess higher...")
+    elif guess > number:
+        print("Guess Lower...")
+if win:
+    print("You got the Number!")
+    print("Number of tries: " + str(tries) + " ")
 
-print("Hello", uname + ".", )
 
-question = input("Would you like to play a game? [Y/N] ")
-
-if question == "n":
-    print("oh..okay")
-
-if question == "y":
-    print("I'm thinking of a number between 1 & 10")
-    guess = int(input("Have a guess: "))
-    if guess > number:
-        print("Guess lower ...")
-if guess < number:
-    print("Guess higher...")
-while guess !=number:
-    tries += 1
-    guess = int(input("Try Again: "))
-    if guess < number:
-        print("Guess Higher")
-if guess == number:
-    print("You got it! The number was", number, \
-             "and it only", tries, "tries!")
